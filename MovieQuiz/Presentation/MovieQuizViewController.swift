@@ -2,9 +2,11 @@ import UIKit
 
 final class MovieQuizViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var counterLabel: UILabel!
+    @IBOutlet weak private var textLabel: UILabel!
+    @IBOutlet weak private var yesButton: UIButton!
+    @IBOutlet weak private var noButton: UIButton!
     
     private let questions = QuizQuestionMock.questions
     private var currentQuestionIndex = 0
@@ -17,7 +19,6 @@ final class MovieQuizViewController: UIViewController {
         imageView.layer.borderWidth = 8
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
         
         let firstQuestion = questions[currentQuestionIndex]
         let viewModel = convert(model: firstQuestion)
@@ -29,7 +30,11 @@ final class MovieQuizViewController: UIViewController {
         imageView.image = step.image
         textLabel.text = step.question
         counterLabel.text = step.questionNumber
+        
+        yesButton.isEnabled = true
+        noButton.isEnabled = true
     }
+    
     private func show(quiz result: QuizResultsModel) {
         let alert = UIAlertController (
             title: result.title,
@@ -60,6 +65,10 @@ final class MovieQuizViewController: UIViewController {
     }
     
     private func showAnswerResult(isCorrect: Bool) {
+        
+        yesButton.isEnabled = false
+        noButton.isEnabled = false
+       
         if isCorrect {
             correctAnswers += 1
         }

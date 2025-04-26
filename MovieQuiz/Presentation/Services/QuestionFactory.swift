@@ -1,7 +1,12 @@
 import Foundation
 
-struct QuizQuestionMock {
-    static let questions: [QuizQuestion] = [
+class QuestionFactory: QuestionFactoryProtocol {
+    weak var delegate: QuestionFactoryDelegate?
+
+    func setup(delegate: QuestionFactoryDelegate) {
+            self.delegate = delegate
+        }
+    private let questions: [QuizQuestion] = [
         QuizQuestion(
             image: "The Godfather",
             text: "Рейтинг этого фильма больше чем 6?",
@@ -43,4 +48,15 @@ struct QuizQuestionMock {
             text: "Рейтинг этого фильма больше чем 6?",
             correctAnswer: false)
     ]
+    func requestNextQuestion() {
+        guard let index = (0..<questions.count).randomElement() else {
+            delegate?.didReceiveNextQuestion(question: nil)
+            return
+        }
+
+        let question = questions[safe: index]
+        delegate?.didReceiveNextQuestion(question: question)
+    }
 }
+
+

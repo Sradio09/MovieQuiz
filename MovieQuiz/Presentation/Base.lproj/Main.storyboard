@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="YS Display-Bold.ttf">
+            <string>YSDisplay-Bold</string>
+        </array>
         <array key="YS Display-Medium.ttf">
             <string>YSDisplay-Medium</string>
         </array>
@@ -105,17 +108,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="jDB-Fj-AgR">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
+                            <constraint firstItem="jDB-Fj-AgR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="H33-eA-8VQ"/>
                             <constraint firstItem="OPp-z9-Sfe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="N1B-Jf-WdJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OPp-z9-Sfe" secondAttribute="trailing" constant="20" id="V9x-6J-Pyu"/>
+                            <constraint firstItem="jDB-Fj-AgR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zng-TM-ytn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OPp-z9-Sfe" secondAttribute="bottom" id="ldv-aN-xU6"/>
                             <constraint firstItem="OPp-z9-Sfe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zOG-KZ-6hs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="jDB-Fj-AgR" id="Zt9-WR-WXY"/>
                         <outlet property="counterLabel" destination="k13-30-rKk" id="l7m-sf-iK7"/>
                         <outlet property="imageView" destination="aoJ-n9-fJW" id="mFB-zG-Yj9"/>
                         <outlet property="noButton" destination="A8W-8i-lCX" id="zdI-o7-dNB"/>

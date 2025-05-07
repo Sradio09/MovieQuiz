@@ -19,6 +19,7 @@ final class AlertPresenter {
             message: model.message,
             preferredStyle: .alert
         )
+      
         if let id = model.accessibilityIdentifier {
                     alert.view.accessibilityIdentifier = id
                 }

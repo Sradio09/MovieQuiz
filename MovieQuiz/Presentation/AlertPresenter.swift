@@ -19,6 +19,10 @@ final class AlertPresenter {
             message: model.message,
             preferredStyle: .alert
         )
+      
+        if let id = model.accessibilityIdentifier {
+                    alert.view.accessibilityIdentifier = id
+                }
 
         let action = UIAlertAction(title: model.buttonText, style: .default) { [weak self] _ in
             self?.currentAlert = nil
